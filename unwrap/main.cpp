@@ -6,7 +6,7 @@
 
 std::string UnwrapString(const std::string& inputString)
 {
-	auto messageContent{ inputString };
+  std::string messageContent{ inputString };
 	if (messageContent.find_first_of("\r\n") != std::string::npos)
 	{
 		// Message content contains CR/LF
@@ -14,7 +14,7 @@ std::string UnwrapString(const std::string& inputString)
 
 		// Sanitise input so it appears cohesive; that is, CRLF that may have
 		// put words (e.g. foo\r\nbar -> foobar) together will have a space between them (foo bar).
-		auto separator = "";
+		const char* separator = "";
 		std::istringstream stream(messageContent);
 		std::string line;
 		std::string output;
